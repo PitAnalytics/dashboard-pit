@@ -18,13 +18,15 @@ class CovidWarehouse extends AbstractWarehouse{
     FROM 
       `bigquery-public-data.covid19_jhu_csse.summary` 
     GROUP BY country  
-    ORDER BY confirmed ASC; ");
+    ORDER BY confirmed DESC; ");
 
     for ($i=0; $i <count($index); $i++) { 
 
       $index[$i]['confirmed']=intval($index[$i]['confirmed']);
       $index[$i]['deaths']=intval($index[$i]['deaths']);
       $index[$i]['recovered']=intval($index[$i]['recovered']);
+      $index[$i]['sick']=intval($index[$i]['sick']);
+
 
     }
 
