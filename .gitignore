@@ -1,0 +1,4 @@
+app/config/config.json
+vendor/*
+composer.lock
+db.sql
