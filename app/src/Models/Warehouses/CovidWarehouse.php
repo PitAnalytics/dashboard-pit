@@ -20,7 +20,16 @@ class CovidWarehouse extends AbstractWarehouse{
     GROUP BY date 
     ORDER BY date ASC; ");
 
-    print_r($index);
+    for ($i=0; $i <count($index); $i++) { 
+
+      $index[$i]['confirmed']=intval($index[$i]['confirmed']);
+      $index[$i]['deaths']=intval($index[$i]['deaths']);
+      $index[$i]['recovered']=intval($index[$i]['recovered']);
+      $index[$i]['sick']=$index[$i]['confirmed']-($index[$i]['recovered']+$index[$i]['deaths']);
+
+    }
+
+    return $index;
 
   }
 
