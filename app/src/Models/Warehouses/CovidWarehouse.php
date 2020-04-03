@@ -13,7 +13,8 @@ class CovidWarehouse extends AbstractWarehouse{
     SUBSTR(CAST(date AS STRING),1,10) AS date, 
     SUM(confirmed) AS confirmed, 
     SUM(deaths) AS deaths, 
-    SUM(recovered) AS recovered 
+    SUM(recovered) AS recovered, 
+    SUM(confirmed)-SUM(deaths)-SUM(recovered) AS sick 
     FROM 
       `bigquery-public-data.covid19_jhu_csse.summary` 
     WHERE country_region = 'Mexico' 
@@ -25,7 +26,6 @@ class CovidWarehouse extends AbstractWarehouse{
       $index[$i]['confirmed']=intval($index[$i]['confirmed']);
       $index[$i]['deaths']=intval($index[$i]['deaths']);
       $index[$i]['recovered']=intval($index[$i]['recovered']);
-      $index[$i]['sick']=$index[$i]['confirmed']-($index[$i]['recovered']+$index[$i]['deaths']);
 
     }
 

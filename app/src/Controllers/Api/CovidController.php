@@ -25,7 +25,13 @@ class CovidController extends AbstractController{
 
     $covidWarehouse=$this->warehouseManager->getWarehouse('covid');
 
-    $covidWarehouse->index();
+    $index = $covidWarehouse->index();
+
+    $response1 = $response->withJson($index,201);
+    $response2 = $response1
+    ->withHeader('Access-Control-Allow-Origin', '*')
+    ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    return $response2;
     
   }
   public function country($request,$response,$args){
