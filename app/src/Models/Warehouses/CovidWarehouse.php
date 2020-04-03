@@ -17,7 +17,7 @@ class CovidWarehouse extends AbstractWarehouse{
       `bigquery-public-data.covid19_jhu_csse.summary`
     WHERE country_region = 'Mexico'
     GROUP BY date
-    ORDER BY date ASC');");
+    ORDER BY date ASC';");
 
     print_r($index);
 
