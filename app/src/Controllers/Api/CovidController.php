@@ -15,7 +15,7 @@ class CovidController extends AbstractController{
 
     $this->container=$container;
     $this->setMainInstances();
-    $this->warehouseManager=$this->container['warehouse-manager'](['projectId'=>'estado-de-resultados']);
+    $this->warehouseManager=$this->container['warehouse-manager'](['projectId'=>'estado-de-resultados266105']);
 
   }
   /*******************************/
