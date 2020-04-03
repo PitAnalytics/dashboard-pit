@@ -10,15 +10,14 @@ class CovidWarehouse extends AbstractWarehouse{
 
     $index = $this->bigQuery->query(
     "SELECT 
-    SUBSTR(CAST(date AS STRING),1,10) AS date, 
+    country_region AS country, 
     SUM(confirmed) AS confirmed, 
     SUM(deaths) AS deaths, 
     SUM(recovered) AS recovered, 
     SUM(confirmed)-SUM(deaths)-SUM(recovered) AS sick 
     FROM 
       `bigquery-public-data.covid19_jhu_csse.summary` 
-    WHERE country_region = 'Mexico' 
-    GROUP BY date 
+    GROUP BY country 
     ORDER BY date ASC; ");
 
     for ($i=0; $i <count($index); $i++) { 
