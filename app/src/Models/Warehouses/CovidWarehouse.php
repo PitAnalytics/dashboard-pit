@@ -17,8 +17,8 @@ class CovidWarehouse extends AbstractWarehouse{
     SUM(confirmed)-SUM(deaths)-SUM(recovered) AS sick 
     FROM 
       `bigquery-public-data.covid19_jhu_csse.summary` 
-    GROUP BY country_region  
-    ORDER BY date ASC; ");
+    GROUP BY country  
+    ORDER BY confirmed ASC; ");
 
     for ($i=0; $i <count($index); $i++) { 
 
